@@ -1,11 +1,21 @@
 const translations = {
     ko: {
-        landing_badge: "민생지원금 소급 적용 확인",
-        landing_title: "놓쳐버린 1·2차<br><span class='highlight'>민생지원금</span> 찾기",
-        landing_subtitle: "지난 1, 2차 민생회복 소비쿠폰 지급 대상이었는지 확인하고<br>아직 받지 못한 지원금이 있는지 지금 바로 조회해 보세요.",
-        landing_info_title: "최대 40만원 누적 확인",
-        landing_info_desc: "일반국민 15만원(1차) + 전국민 10만원(2차) 등",
-        landing_btn: "과거 지원금 이력 조회하기",
+        landing_badge: "소비쿠폰 혜택 다시보기",
+        landing_title: "지나간 혜택 다시보기<br><span class='highlight'>민생회복 소비쿠폰</span> 편",
+        landing_subtitle: "2025년에 시행된 민생회복 소비쿠폰, 1차와 2차 모두 챙기셨나요? 아래 리스트를 통해 내가 대상자였는지 확인해 보세요!",
+
+        info_card_1_title: "✅ 1차 지원금 (보편 지급)",
+        info_card_1_desc: "내용: 전국민 1인당 15만원 지급<br>대상: 대한민국 국민 전체",
+        info_card_1_check: "확인: 2025년 상반기에 신용카드 포인트나 지역상품권으로 15만원이 들어온 적이 있나요?",
+
+        info_card_2_title: "✅ 2차 지원금 (선별 추가 지급)",
+        info_card_2_desc: "내용: 1인당 10만원 추가 지급<br>대상: 소득 하위 80%~90% 가구원 (또는 취약계층 별도 우대)",
+        info_card_2_check: "확인: 1차 수령 후 추가로 10만원이 입금되었는지 확인해 보세요.",
+
+        landing_question: "💰 \"아차, 나 이거 못 받은 것 같은데?\"",
+        landing_cta_desc: "이미 신청 기간이 지났어도 걱정 마세요. 지금 바로 <strong>'내가 받을 수 있었던 지원금'</strong>을 찾아드릴게요!",
+        landing_btn: "내 지원금 찾기",
+
         landing_footer: "본 본인인증은 안전하게 암호화됩니다",
         input_title: "이력 조회를 위해<br>정보를 입력해주세요",
         label_name: "이름 (외국인등록증상 이름)",
@@ -38,12 +48,22 @@ const translations = {
         btn_close: "닫기"
     },
     en: {
-        landing_badge: "Verify Past Relief Funds",
-        landing_title: "Find your missed<br><span class='highlight'>1st & 2nd Funds</span>",
-        landing_subtitle: "Check if you were eligible for the previous 1st/2nd relief funds<br>and see if there's any unclaimed balance.",
-        landing_info_title: "Up to 400,000 KRW Total",
-        landing_info_desc: "150k (1st) + 100k (2nd) for eligible citizens",
-        landing_btn: "Check My Past Records",
+        landing_badge: "Previous Relief Funds",
+        landing_title: "Look Back at Missed Benefits:<br><span class='highlight'>Relief Fund Edition</span>",
+        landing_subtitle: "The Relief Funds were distributed in 2025. Did you receive both the 1st and 2nd payments? Check the list below to see if you were eligible!",
+
+        info_card_1_title: "✅ 1st Relief Fund (Universal)",
+        info_card_1_desc: "Detail: 150,000 KRW per person<br>Eligible: All citizens of South Korea",
+        info_card_1_check: "Check: Did you receive 150,000 KRW as credit card points or local currency in the first half of 2025?",
+
+        info_card_2_title: "✅ 2nd Relief Fund (Selective)",
+        info_card_2_desc: "Detail: Additional 100,000 KRW per person<br>Eligible: Lower 80~90% income households",
+        info_card_2_check: "Check: Did you receive an additional 100,000 KRW after the 1st payment?",
+
+        landing_question: "💰 \"Wait, did I miss out on this?\"",
+        landing_cta_desc: "Don't worry even if the application period has passed. We'll help you find the <strong>'Relief Funds you were entitled to'</strong> right now!",
+        landing_btn: "Find My Funds",
+
         landing_footer: "Your authentication is securely encrypted.",
         input_title: "Enter your info<br>to check records",
         label_name: "Full Name (as on ARC)",
@@ -76,12 +96,22 @@ const translations = {
         btn_close: "Close"
     },
     zh: {
-        landing_badge: "确认过往补助金追溯",
-        landing_title: "查询您错过的<br>第1、2次<span class='highlight'>支援金</span>",
-        landing_subtitle: "确认您是否属于过往第1、2次民生恢复支援金的发放对象，<br>查询是否有尚未领取的补助。",
-        landing_info_title: "最高累计 40万韩元",
-        landing_info_desc: "15万(第1次) + 10万(第2次)等",
-        landing_btn: "查询过往发放记录",
+        landing_badge: "消费券优惠回顾",
+        landing_title: "回顾错过的优惠<br><span class='highlight'>民生恢复消费券</span> 篇",
+        landing_subtitle: "2025年实施的民生恢复消费券，您第1次和第2次都领取了吗？通过下面的列表确认您是否属于发放对象！",
+
+        info_card_1_title: "✅ 第1次补助金 (普遍发放)",
+        info_card_1_desc: "内容：每人发放15万韩元<br>对象：全体韩国国民",
+        info_card_1_check: "确认：2025年上半年是否有15万韩元以信用卡积分或地区代金券形式入账？",
+
+        info_card_2_title: "✅ 第2次补助金 (筛选额外发放)",
+        info_card_2_desc: "内容：每人额外发放10万韩元<br>对象：收入下游80%~90%的家庭成员（或弱势群体特别优待）",
+        info_card_2_check: "确认：请确认在收到第1次之后是否又额外入账了10万韩元。",
+
+        landing_question: "💰 \"啊，我好像没领到这个？\"",
+        landing_cta_desc: "即使申请期限已过也不要担心。现在就为您查找 <strong>'您本可以领取的补助金'</strong>！",
+        landing_btn: "查找我的补助金",
+
         landing_footer: "本人认证过程经过安全加密",
         input_title: "请输入信息<br>以查询记录",
         label_name: "姓名 (外国人登录证上的姓名)",
@@ -114,14 +144,24 @@ const translations = {
         btn_close: "关闭"
     },
     ja: {
-        landing_badge: "過去の支援金遡及確認",
-        landing_title: "逃してしまった<br>第1·2次<span class='highlight'>支援金</span>を探す",
-        landing_subtitle: "過去の第1, 2次民生回復消費クーポンの支給対象だったかを確認し、<br>まだ受け取っていない支援金があるか今すぐ照会してください。",
-        landing_info_title: "最大 40万ウォン 累積確認",
-        landing_info_desc: "15万(1次) + 10万(2次)など",
-        landing_btn: "過去の支援金履歴を確認する",
+        landing_badge: "消費クーポン特典振り返り",
+        landing_title: "見逃した特典を振り返る<br><span class='highlight'>民生回復消費クーポン</span> 編",
+        landing_subtitle: "2025年に施行された民生回復消費クーポン、第1次と第2次の両方を受け取りましたか？下のリストで対象者だったか確認してみましょう！",
+
+        info_card_1_title: "✅ 第1次支援金 (普遍支給)",
+        info_card_1_desc: "内容：全国民1人あたり15万ウォン支給<br>対象：大韓民国国民全体",
+        info_card_1_check: "確認：2025年上半期にクレジットカードポイントや地域商品券で15万ウォンが入ったことがありますか？",
+
+        info_card_2_title: "✅ 第2次支援金 (選別追加支給)",
+        info_card_2_desc: "内容：1人あたり10万ウォンの追加支給<br>対象：所得下位80%~90%の世帯員（または、脆弱階層の別途優待）",
+        info_card_2_check: "確認：第1次の受領後、追加で10万ウォンが振り込まれたか確認してみてください。",
+
+        landing_question: "💰 \"あ、これ受け取ってないかも？\"",
+        landing_cta_desc: "すでに申請期間が過ぎていてもご安心ください。今すぐ <strong>「あなたが受け取ることができたはずの支援金」</strong>をお探しします！",
+        landing_btn: "支援金を探す",
+
         landing_footer: "本人認証は安全に暗号化されます",
-        input_title: "履歴照会のために<br>情報を入力してください",
+        input_title: "履歴照会のための情報を入力してください",
         label_name: "氏名 (外国人登録証上の名前)",
         placeholder_name: "登録証上の名前を入力してください",
         label_arn: "外国人登録番号",
@@ -190,14 +230,24 @@ const translations = {
         btn_close: "Đóng"
     },
     mn: {
-        landing_badge: "Өнгөрсөн халамжийг нөхөж шалгах",
-        landing_title: "Алагдсан <span class='highlight'>1, 2-р ээлжийн</span><br>халамжийг хайх",
-        landing_subtitle: "Өнгөрсөн 1, 2-р ээлжийн халамжийн купон олгох үед хамрагдах боломжтой байсан эсэхээ<br>болон аваагүй үлдэгдэл байгаа эсэхийг одоо шалгана уу.",
-        landing_info_title: "Нийт 400,000 вон хүртэл",
-        landing_info_desc: "150к (1-р ээлж) + 100к (2-р ээлж) гэх мэт",
-        landing_btn: "Өнгөрсөн түүхийг шалгах",
+        landing_badge: "Хэрэглээний купоны хөнгөлөлтийг эргэн харах",
+        landing_title: "Өнгөрсөн хөнгөлөлтийг эргэн харах<br><span class='highlight'>Минсэн хэрэглээний купон</span>",
+        landing_subtitle: "2025 онд хэрэгжсэн минсэн хэрэглээний купон, 1 болон 2-р ээлжийг хоёуланг нь авсан уу? Доорх жагсаалтаас та хамрагдах боломжтой байсан эсэхээ шалгаарай!",
+
+        info_card_1_title: "✅ 1-р ээлжийн халамж (Бүх нийтэд)",
+        info_card_1_desc: "Агуулга: Хүн бүрт 150,000 вон олгох<br>Объект: БНСУ-ын нийт иргэд",
+        info_card_1_check: "Шалгах: 2025 оны эхний хагаст зээлийн картын оноо эсвэл орон нутгийн ваучераар 150,000 вон орж ирсэн үү?",
+
+        info_card_2_title: "✅ 2-р ээлжийн халамж (Сонгосон бүлэгт)",
+        info_card_2_desc: "Агуулга: Хүн бүрт нэмэлт 100,000 вон олгох<br>Объект: Орлого багатай 80-90%-ийн өрхийн гишүүд (эсвэл тусгай бүлэг)",
+        info_card_2_check: "Шалгах: 1-р ээлжийг авсны дараа нэмэлтээр 100,000 вон орж ирсэн эсэхийг шалгана уу.",
+
+        landing_question: "💰 \"Өө, би үүнийг аваагүй юм шиг байна?\"",
+        landing_cta_desc: "Бүртгүүлэх хугацаа дууссан байсан ч санаа зоволтгүй. Одоо шууд <strong>'таны авах боломжтой байсан халамж'</strong>-ийг олж өгөх болно!",
+        landing_btn: "Миний халамжийг хайх",
+
         landing_footer: "Таны мэдээлэл найдвартай шифрлэгдсэн",
-        input_title: "Түүхийг шалгахын тулд<br>мэдээллээ оруулна уу",
+        input_title: "Түүхийг шалгахын тулд мэдээллээ оруулна уу",
         label_name: "Нэр (Гадаад иргэний үнэмлэх дээрх нэр)",
         placeholder_name: "Үнэмлэх дээрх нэрээ оруулна уу",
         label_arn: "Гадаад иргэний бүртгэлийн дугаар",
