@@ -124,6 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('input', validateInputs);
     });
 
+    // Auto-capitalize name input
+    inputs.name.addEventListener('input', (e) => {
+        e.target.value = e.target.value.toUpperCase();
+    });
+
     // Event Listeners
     buttons.start.addEventListener('click', () => {
         showPage('input');

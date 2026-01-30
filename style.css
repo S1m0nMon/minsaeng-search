@@ -327,6 +327,10 @@ select {
     transition: var(--transition);
 }
 
+#user-name {
+    text-transform: uppercase;
+}
+
 input:focus {
     border-color: var(--primary-color);
     background: #ffffff;
