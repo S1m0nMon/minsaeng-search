@@ -24,17 +24,15 @@ body {
     background-color: var(--bg-color);
     color: var(--text-main);
     overflow-x: hidden;
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
 }
 
 #app {
     position: relative;
     max-width: 500px;
     margin: 0 auto;
-    height: 100%;
+    min-height: 100vh;
     background-color: var(--card-bg);
-    overflow: hidden;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
 }
 
@@ -62,28 +60,27 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     padding: 40px 24px;
-    display: flex;
+    display: none;
     flex-direction: column;
     opacity: 0;
     transform: translateX(30px);
-    pointer-events: none;
     transition: var(--transition);
     background: var(--card-bg);
 }
 
 .page.active {
+    display: flex;
     opacity: 1;
     transform: translateX(0);
-    pointer-events: all;
     z-index: 10;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    flex: 1;
 }
 
 .container.center {
@@ -198,11 +195,7 @@ body {
     margin-bottom: 40px;
 }
 
-.info-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
+/* Removed conflicting flex style */
 
 .info-icon {
     font-size: 32px;
