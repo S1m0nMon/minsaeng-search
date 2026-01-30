@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>3차 민생회복 소비쿠폰 지원금 조회 - 민생지원금</title>
+    <meta name="description" content="2026년 3차 민생회복 소비쿠폰 지원 대상 여부와 예상 수령 금액을 간편하게 조회해보세요.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="i18n.js"></script>
+</head>
+
+<body>
+    <div class="lang-selector">
+        <select id="lang-select">
+            <option value="ko">한국어</option>
+            <option value="en">English</option>
+            <option value="zh">简体中文</option>
+            <option value="ja">日本語</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="mn">Монгол</option>
+        </select>
+    </div>
+    <div id="app">
+        <!-- Landing Page -->
+        <section id="landing" class="page active">
+            <div class="container">
+                <div class="badge" data-i18n="landing_badge">2026 3차 민생지원</div>
+                <h1 class="main-title" data-i18n="landing_title">잠들어 있는 내<br><span class="highlight">민생지원금</span> 찾기
+                </h1>
+                <p class="subtitle" data-i18n="landing_subtitle">전 국민 대상 3차 유동성 지원 안내<br>지금 바로 대상자인지 확인해보세요.</p>
+
+                <div class="info-card">
+                    <div class="info-item">
+                        <div class="info-icon">💰</div>
+                        <div class="info-text">
+                            <strong data-i18n="landing_info_title">최대 40만원 + α</strong>
+                            <span data-i18n="landing_info_desc">기초수급자 및 인구감소지역 추가지원</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-area">
+                    <div class="coin-animation">
+                        <div class="coin">₩</div>
+                        <div class="coin">₩</div>
+                        <div class="coin">₩</div>
+                    </div>
+                </div>
+
+                <div class="bottom-action">
+                    <button id="start-btn" class="primary-btn" data-i18n="landing_btn">나의 지원금 조회하기</button>
+                    <p class="secondary-info" data-i18n="landing_footer">본 본인인증은 안전하게 암호화됩니다</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Input Page -->
+        <section id="input-step" class="page">
+            <div class="container">
+                <div class="header">
+                    <button class="back-btn" id="back-to-landing">←</button>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <h2 class="section-title" data-i18n="input_title">조회를 위해<br>정보를 입력해주세요</h2>
+
+                <div class="input-group">
+                    <label data-i18n="label_name">이름</label>
+                    <input type="text" id="user-name" placeholder="실명을 입력해주세요" autocomplete="name"
+                        data-i18n-placeholder="placeholder_name">
+                </div>
+
+                <div class="input-group">
+                    <label data-i18n="label_arn">외국인등록번호</label>
+                    <div class="rrn-input">
+                        <input type="number" id="rrn-1" placeholder="앞 6자리" maxlength="6" pattern="\d*"
+                            data-i18n-placeholder="placeholder_arn1">
+                        <span>-</span>
+                        <input type="password" id="rrn-2" placeholder="뒤 7자리" maxlength="7" pattern="\d*"
+                            data-i18n-placeholder="placeholder_arn2">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label data-i18n="label_visa">현재 소지한 체류 자격</label>
+                    <div class="visa-selector">
+                        <button type="button" class="visa-btn" data-value="D-2" data-i18n="visa_d2">D-2 (유학)</button>
+                        <button type="button" class="visa-btn" data-value="D-4" data-i18n="visa_d4">D-4 (일반연수)</button>
+                    </div>
+                    <input type="hidden" id="visa-type" value="">
+                </div>
+
+                <div class="bottom-action">
+                    <button id="check-eligibility-btn" class="primary-btn disabled" disabled
+                        data-i18n="input_btn">조회하기</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading Page -->
+        <section id="loading" class="page">
+            <div class="container center">
+                <div class="loading-spinner"></div>
+                <h2 class="loading-title" data-i18n="loading_title">정부 데이터베이스에서<br>대상자 여부를 확인 중입니다</h2>
+                <div class="loading-steps">
+                    <p id="step-1" class="pending" data-i18n="loading_step1">주민등록번호 유효성 검사...</p>
+                    <p id="step-2" class="pending" data-i18n="loading_step2">거주지 및 소득 수준 파악...</p>
+                    <p id="step-3" class="pending" data-i18n="loading_step3">최종 지원 금액 산출 중...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Result Page (Ineligible) -->
+        <section id="result-negative" class="page">
+            <div class="container">
+                <div class="result-icon-area">
+                    <div class="icon-circle error">!</div>
+                </div>
+                <h2 class="result-title" data-i18n="result_neg_title">지원 대상자가 아닙니다</h2>
+                <p class="result-desc"><span id="display-name-neg"></span><span data-i18n="result_neg_desc">님은 아쉽게도
+                        이번<br>3차 민생회복 지원금 대상에 포함되지 않았습니다.</span></p>
+
+                <div class="reason-card">
+                    <h3 data-i18n="reason_title">부적격 사유 안내</h3>
+                    <p><span data-i18n="reason_desc1">현재 소지하신 체류 자격</span>(<strong><span id="display-visa"></span>D-2 유학
+                            비자</span></strong>)<span data-i18n="reason_desc2">은 민생경제 회복을 위한 소비 활성화 정책의 수혜 대상에서 제외되어
+                            있습니다.</span></p>
+                    <ul>
+                        <li data-i18n="reason_list1">지급 대상: 주민등록법상 주민등록이 되어 있는 국민</li>
+                        <li data-i18n="reason_list2">제외 대상: 외국인 중 일반 유학생(D-2), 단기 체류자 등</li>
+                    </ul>
+                </div>
+
+                <div class="bottom-action">
+                    <button class="secondary-btn" onclick="location.reload()" data-i18n="btn_home">처음으로</button>
+                    <button id="close-result-btn" class="primary-btn gray" data-i18n="btn_close">닫기</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Result Page (Eligible) -->
+        <section id="result-positive" class="page">
+            <div class="container">
+                <div class="result-icon-area">
+                    <div class="icon-circle success">✓</div>
+                </div>
+                <h2 class="result-title">민생회복 지원금<br>대상자로 확인되었습니다!</h2>
+                <p class="result-desc"><span id="display-name-pos"></span>님은 3차 지원금<br>지급 대상에 해당합니다.</p>
+
+                <div class="amount-card">
+                    <span class="label">예상 수령 금액</span>
+                    <span class="amount">250,000원</span>
+                    <div class="divider"></div>
+                    <div class="detail-row">
+                        <span>기본 지원금</span>
+                        <span>150,000원</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>2차 추가 지원금</span>
+                        <span>100,000원</span>
+                    </div>
+                </div>
+
+                <div class="bottom-action">
+                    <button class="primary-btn">지금 바로 신청하기</button>
+                    <button class="secondary-btn" onclick="location.reload()">나중에 하기</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notification Modal -->
+        <div id="notify-modal" class="modal-overlay">
+            <div class="modal-content">
+                <div id="notify-step-1">
+                    <h3 data-i18n="notify_title">다음 지원금 소식을 알려드릴까요?</h3>
+                    <p data-i18n="notify_desc">추후 새로운 소비쿠폰 정책이 시행될 때<br>누구보다 빠르게 알림을 보내드려요.</p>
+                    <div class="consent-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="consent-check">
+                            <span class="checkmark"></span>
+                            <span data-i18n="notify_consent">[필수] 개인정보 수집 및 알림 수신 동의</span>
+                        </label>
+                    </div>
+                    <div class="modal-btns">
+                        <button id="cancel-notify" class="modal-btn gray" data-i18n="btn_close">닫기</button>
+                        <button id="submit-notify" class="modal-btn primary disabled" disabled data-i18n="notify_btn">알림
+                            신청하기</button>
+                    </div>
+                </div>
+                <div id="notify-step-2" style="display: none;">
+                    <div class="success-icon">✨</div>
+                    <h3 data-i18n="notify_success_title">알림 설정이 완료되었습니다!</h3>
+                    <p data-i18n="notify_success_desc">지급 대상이 확대되거나 새로운 정책이 나오면<br>등록하신 정보로 연락드릴게요.</p>
+                    <button id="finish-notify" class="primary-btn" data-i18n="btn_close">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
